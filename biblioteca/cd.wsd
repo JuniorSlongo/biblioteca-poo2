@@ -1,0 +1,103 @@
+@startuml Biblioteca
+
+class Email {
+  - id_email: int
+  - email: String
+  + validarEmail(): boolean
+}
+
+class Pessoa {
+  - cpf: String
+  - id_email: int
+  - nome: String
+  - senha: String
+  - data_nascimento: Date
+}
+
+class Usuario {
+  - id_usuario: int
+  - id_pessoa: int
+  + registrar(): void
+  + login(cpf : String, senha : String): void
+}
+
+class Curso {
+  - id_curso: int
+  - nome: String
+  - duracao: int
+  + cadastrar(): void
+  + buscar(): List<Curso>
+}
+
+class Estudante {
+  - matricula: String
+  - id_curso: int
+  - id_usuario: int
+}
+
+class Professor {
+  - id_professor: int
+  - departamento: String
+  - id_usuario: int
+}
+
+
+class Autor {
+  - id_autor: int
+  - nome: String
+  - data_nascimento: Date
+  - biografia: String
+  + cadastrar(): void
+}
+
+class Livro {
+  - id_livro: int
+  - titulo: String
+  - id_autor: int
+  - isbn: String
+  - disponibilidade: boolean
+  + buscar(): List<Livro>
+}
+
+class Emprestimo {
+  - id_emprestimo: int
+  - dataEmprestimo: Date
+  - dataDevolucao: Date
+  - id_usuario: int
+  - id_livro: int
+  + emprestar(): void
+  + devolver(): void
+}
+
+class Administrador {
+  - id_administrador: int
+  - id_usuario: int
+  + adicionarLivro(livro: Livro): void
+  + removerLivro(livro: Livro): void
+  + gerenciarUsuarios(usuario: Usuario): void
+}
+
+class Biblioteca {
+  - livros: List<Livro>
+  - id_usuarios: List<Usuario>
+}
+
+Usuario "1" *-- "0..1" Estudante
+Usuario "1" *-- "0..1" Professor
+
+Livro "1" *-- "0..*" Emprestimo
+Usuario "1" *-- "0..*" Emprestimo
+
+Biblioteca "1" *-- "1..*" Livro
+Biblioteca "1" *-- "1..*" Usuario
+
+Administrador "0..1" -- "1" Usuario
+
+Pessoa "1" *-- "1" Email
+Pessoa "1" *-- "1" Usuario
+
+Curso "1" *-- "0..*" Estudante
+
+Autor "1..*" *-- "1..*" Livro
+
+@enduml
