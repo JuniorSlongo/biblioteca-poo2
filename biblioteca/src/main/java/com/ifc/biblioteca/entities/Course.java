@@ -1,29 +1,50 @@
 package com.ifc.biblioteca.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.List;
+
 @Entity
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCourse;
+    private int idCurso;
+    private String nome;
+    private int duracao;
 
-    private String name;
-    private int duration;
-
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "curso")
     private List<Student> students;
 
-    public void register(String name, int duration) {
-        // Implement course registration logic
+    public int getIdCurso() {
+        return idCurso;
     }
 
-    public List<Course> search() {
-        // Implement course search logic
-        return null;
+    public void setIdCurso(int idCurso) {
+        this.idCurso = idCurso;
     }
 
-    // Getters and Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    // Getters e setters
 }

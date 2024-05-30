@@ -1,35 +1,20 @@
 package com.ifc.biblioteca.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
-public class User {
+public class User extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUser;
+    private int idUsuario;
 
-    @OneToOne
-    @JoinColumn(name = "cpf")
-    private Person person;
-
-    @OneToOne(mappedBy = "user")
-    private Student student;
-
-    @OneToOne(mappedBy = "user")
-    private Professor professor;
-
-    public void register(String cpf, String name, String password, Date birthDate) {
-        // Implement registration logic
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void login(String cpf, String password) {
-        // Implement login logic
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    // Getters and Setters
+    
 }

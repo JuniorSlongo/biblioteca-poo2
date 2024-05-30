@@ -1,21 +1,26 @@
 package com.ifc.biblioteca.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import javax.persistence.*;
+
 @Entity
-public class Professor {
+public class Professor extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idProfessor;
+    private String departamento;
+    
+    public int getIdProfessor() {
+        return idProfessor;
+    }
+    public void setIdProfessor(int idProfessor) {
+        this.idProfessor = idProfessor;
+    }
+    public String getDepartamento() {
+        return departamento;
+    }
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
 
-    private String department;
-
-    @OneToOne
-    @JoinColumn(name = "id_user")
-    private User user;
-
-    // Getters and Setters
+    // Getters e setters
 }
