@@ -1,32 +1,20 @@
 package com.ifc.biblioteca.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import javax.persistence.*;
+
 @Entity
-public class Administrator extends User{
+public class Administrator extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idAdministrator;
+    private int idAdministrador;
 
-    @OneToOne
-    @JoinColumn(name = "id_user")
-    private User user;
-
-    public void addBook(Book book) {
-        // Implement add book logic
+    public int getIdAdministrador() {
+        return idAdministrador;
     }
 
-    public void removeBook(Book book) {
-        // Implement remove book logic
+    public void setIdAdministrador(int idAdministrador) {
+        this.idAdministrador = idAdministrador;
     }
 
-    public void manageUsers(User user) {
-        // Implement user management logic
-    }
-
-    // Getters and Setters
+    
 }

@@ -1,26 +1,60 @@
 package com.ifc.biblioteca.entities;
 
+import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 @Entity
-public interface Author {
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idAuthor;
+    private int idAutor;
+    private String nome;
+    private Date dataNascimento;
+    private String biografia;
 
-    String name;
-    Date birthDate;
-    String biography;
+    @OneToMany(mappedBy = "autor")
+    private List<Book> books;
 
-    @OneToMany(mappedBy = "author")
-    List<Book> books;
+    public int getIdAutor() {
+        return idAutor;
+    }
 
-    public void register(String name, Date birthDate, String biography);
+    public void setIdAutor(int idAutor) {
+        this.idAutor = idAutor;
+    }
 
-    // Getters and Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getBiografia() {
+        return biografia;
+    }
+
+    public void setBiografia(String biografia) {
+        this.biografia = biografia;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
+    // Getters e setters
 }

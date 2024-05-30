@@ -1,22 +1,26 @@
 package com.ifc.biblioteca.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import javax.persistence.*;
+
 @Entity
-public class Student {
-    @Id
-    private String registrationNumber;
-
+public class Student extends User {
+    private String matricula;
     @ManyToOne
-    @JoinColumn(name = "id_course")
-    private Course course;
+    @JoinColumn(name = "id_curso")
+    private Course curso;
+    
+    public String getMatricula() {
+        return matricula;
+    }
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+    public Course getCurso() {
+        return curso;
+    }
+    public void setCurso(Course curso) {
+        this.curso = curso;
+    }
 
-    @OneToOne
-    @JoinColumn(name = "id_user")
-    private User user;
-
-    // Getters and Setters
+    // Getters e setters
 }

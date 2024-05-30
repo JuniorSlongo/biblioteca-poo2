@@ -1,34 +1,52 @@
 package com.ifc.biblioteca.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Date;
+
 @Entity
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idLoan;
-
-    private Date loanDate;
-    private Date returnDate;
-
+    private int idEmprestimo;
+    private Date dataEmprestimo;
+    private Date dataDevolucao;
     @ManyToOne
-    @JoinColumn(name = "id_user")
-    private User user;
-
+    @JoinColumn(name = "id_usuario")
+    private User usuario;
     @ManyToOne
-    @JoinColumn(name = "id_book")
-    private Book book;
-
-    public void loan(int userId, int bookId) {
-        // Implement loan logic
+    @JoinColumn(name = "id_livro")
+    private Book livro;
+    
+    public int getIdEmprestimo() {
+        return idEmprestimo;
+    }
+    public void setIdEmprestimo(int idEmprestimo) {
+        this.idEmprestimo = idEmprestimo;
+    }
+    public Date getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+    public void setDataEmprestimo(Date dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+    public void setDataDevolucao(Date dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
+    public User getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
+    }
+    public Book getLivro() {
+        return livro;
+    }
+    public void setLivro(Book livro) {
+        this.livro = livro;
     }
 
-    public void returnBook(int userId, int bookId) {
-        // Implement return logic
-    }
-
-    // Getters and Setters
+    
 }

@@ -1,32 +1,70 @@
 package com.ifc.biblioteca.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.List;
+
 @Entity
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idBook;
-
-    private String title;
-    private String isbn;
-    private boolean availability;
-
+    private int idLivro;
+    private String titulo;
     @ManyToOne
-    @JoinColumn(name = "id_author")
-    private Author author;
+    @JoinColumn(name = "id_autor")
+    private Author autor;
+    private String isbn;
+    private boolean disponibilidade;
 
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "livro")
     private List<Loan> loans;
 
-    public List<Book> search() {
-        // Implement book search logic
-        return null;
+    public int getIdLivro() {
+        return idLivro;
     }
 
-    // Getters and Setters
+    public void setIdLivro(int idLivro) {
+        this.idLivro = idLivro;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Author getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Author autor) {
+        this.autor = autor;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public boolean isDisponibilidade() {
+        return disponibilidade;
+    }
+
+    public void setDisponibilidade(boolean disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
+
+    public List<Loan> getLoans() {
+        return loans;
+    }
+
+    public void setLoans(List<Loan> loans) {
+        this.loans = loans;
+    }
+
+    
 }
