@@ -1,6 +1,6 @@
 package com.ifc.biblioteca.entities;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class Administrator extends User {
