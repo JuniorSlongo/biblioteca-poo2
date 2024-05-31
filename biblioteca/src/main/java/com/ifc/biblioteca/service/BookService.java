@@ -1,7 +1,7 @@
-package com.ifc.biblioteca.services;
+package com.ifc.biblioteca.service;
 
-import com.ifc.biblioteca.entities.Book;
-import com.ifc.biblioteca.repositories.BookRepository;
+import com.ifc.biblioteca.entity.Book;
+import com.ifc.biblioteca.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

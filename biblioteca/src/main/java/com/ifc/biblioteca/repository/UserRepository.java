@@ -1,7 +1,8 @@
-package com.ifc.biblioteca.repositories;
+package com.ifc.biblioteca.repository;
 
-import com.ifc.biblioteca.entities.User;
+import com.ifc.biblioteca.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
