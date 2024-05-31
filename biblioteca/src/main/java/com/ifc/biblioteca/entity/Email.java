@@ -3,6 +3,7 @@ package com.ifc.biblioteca.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "email")
 public class Email {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

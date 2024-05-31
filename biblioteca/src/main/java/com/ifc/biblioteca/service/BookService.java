@@ -1,7 +1,11 @@
 package com.ifc.biblioteca.service;
 
 import com.ifc.biblioteca.entity.Book;
+import com.ifc.biblioteca.entity.User;
 import com.ifc.biblioteca.repository.BookRepository;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +21,7 @@ public class BookService {
 
     public Book search(String title) {
         // Implementação do método de busca
-        return bookRepository.findByTitle(title);
+        Optional<Book> bookOpt = bookRepository.findByTitle(title);
+        return bookOpt.orElse(null);
     }
 }

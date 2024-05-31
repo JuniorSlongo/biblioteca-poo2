@@ -23,13 +23,13 @@ public class UserController {
         user.setPassword(userRegister.getPassword());
         user.setName(userRegister.getName());
         user.setBirthDate(userRegister.getBirthDate());
-        user.setEmail(new Email(userRegister.getEmail()));
+        // user.setEmail(new Email(userRegister.getEmail()));
         userService.register(user);
         return ResponseEntity.ok(user);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<User> login(@RequestBody UserLogin userLogin){
+    public ResponseEntity<User> login(@RequestBody UserLogin userLogin) {
         User user = userService.login(userLogin.getCpf(), userLogin.getPassword());
         if (user != null) {
             return ResponseEntity.ok(user);

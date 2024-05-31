@@ -3,6 +3,7 @@ package com.ifc.biblioteca.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "user")
 public class User extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,5 +16,5 @@ public class User extends Person {
     public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
-    
+
 }

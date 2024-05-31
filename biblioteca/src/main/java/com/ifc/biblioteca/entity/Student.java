@@ -3,6 +3,7 @@ package com.ifc.biblioteca.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "student")
 public class Student extends User {
     private String registration;
     @ManyToOne
