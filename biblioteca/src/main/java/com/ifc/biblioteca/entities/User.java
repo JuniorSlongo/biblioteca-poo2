@@ -6,15 +6,14 @@ import jakarta.persistence.*;
 public class User extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
+    private int idUser;
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
-
     
 }

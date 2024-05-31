@@ -11,6 +11,9 @@ public class Email {
 
     public boolean validarEmail(String email) {
         // Implementação da lógica de validação do email
+        if (email == null) {
+            return false;
+        }
         return true; // exemplo simples, deve ser ajustado para validar corretamente
     }
 

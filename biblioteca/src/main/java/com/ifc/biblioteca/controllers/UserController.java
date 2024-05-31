@@ -1,28 +1,36 @@
 package com.ifc.biblioteca.controllers;
 
+import com.ifc.biblioteca.models.UserLogin;
+import com.ifc.biblioteca.models.UserRegister;
+import com.ifc.biblioteca.entities.Email;
 import com.ifc.biblioteca.entities.User;
 import com.ifc.biblioteca.services.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/registrar")
-    public ResponseEntity<User> registrar(@RequestBody User user) {
-        userService.registrar(user);
+    @PostMapping("/register")
+    public ResponseEntity<User> registrar(@RequestBody UserRegister userRegister) {
+        User user = new User();
+        user.setCpf(userRegister.getCpf());
+        user.setPassword(userRegister.getPassword());
+        user.setName(userRegister.getName());
+        user.setBirthDate(userRegister.getBirthDate());
+        user.setEmail(new Email(userRegister.getEmail()));
+        userService.register(user);
         return ResponseEntity.ok(user);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<User> login(@RequestParam String cpf, @RequestParam String senha) {
-        User user = userService.login(cpf, senha);
+    public ResponseEntity<User> login(@RequestBody UserLogin userLogin){
+        User user = userService.login(userLogin.getCpf(), userLogin.getPassword());
         if (user != null) {
             return ResponseEntity.ok(user);
         } else {

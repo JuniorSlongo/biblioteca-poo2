@@ -8,44 +8,43 @@ import java.util.List;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idAutor;
-    private String nome;
-    private Date dataNascimento;
-    private String biografia;
-
+    private int idAuthor;
+    private String name;
+    private Date birthDate;
+    private String biography;
+    
     @OneToMany(mappedBy = "autor")
     private List<Book> books;
 
-    public int getIdAutor() {
-        return idAutor;
+    public int getIdAuthor() {
+        return idAuthor;
     }
 
-    public void setIdAutor(int idAutor) {
-        this.idAutor = idAutor;
+    public void setIdAuthor(int idAuthor) {
+        this.idAuthor = idAuthor;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
+    public Date getBirthDate() {
+        return birthDate;
+    }
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public String getBiography() {
+        return biography;
     }
 
-    public String getBiografia() {
-        return biografia;
-    }
-
-    public void setBiografia(String biografia) {
-        this.biografia = biografia;
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
 
     public List<Book> getBooks() {
@@ -56,5 +55,4 @@ public class Author {
         this.books = books;
     }
 
-    // Getters e setters
 }

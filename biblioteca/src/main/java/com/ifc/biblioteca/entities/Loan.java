@@ -7,46 +7,55 @@ import java.util.Date;
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEmprestimo;
-    private Date dataEmprestimo;
-    private Date dataDevolucao;
+    private int idLoan;
+    private Date loanDate;
+    private Date returnDate;
+    
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private User usuario;
+    private User user;
     @ManyToOne
     @JoinColumn(name = "id_livro")
-    private Book livro;
+    private Book book;
     
-    public int getIdEmprestimo() {
-        return idEmprestimo;
-    }
-    public void setIdEmprestimo(int idEmprestimo) {
-        this.idEmprestimo = idEmprestimo;
-    }
-    public Date getDataEmprestimo() {
-        return dataEmprestimo;
-    }
-    public void setDataEmprestimo(Date dataEmprestimo) {
-        this.dataEmprestimo = dataEmprestimo;
-    }
-    public Date getDataDevolucao() {
-        return dataDevolucao;
-    }
-    public void setDataDevolucao(Date dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
-    }
-    public User getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(User usuario) {
-        this.usuario = usuario;
-    }
-    public Book getLivro() {
-        return livro;
-    }
-    public void setLivro(Book livro) {
-        this.livro = livro;
+    public int getIdLoan() {
+        return idLoan;
     }
 
+    public void setIdLoan(int idLoan) {
+        this.idLoan = idLoan;
+    }
+
+    public Date getLoanDate() {
+        return loanDate;
+    }
+
+    public void setLoanDate(Date loanDate) {
+        this.loanDate = loanDate;
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
     
 }

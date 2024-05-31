@@ -7,35 +7,35 @@ import java.util.List;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCurso;
-    private String nome;
-    private int duracao;
-
+    private int idCourse;
+    private String name;
+    private int duration;
+    
     @OneToMany(mappedBy = "curso")
     private List<Student> students;
 
-    public int getIdCurso() {
-        return idCurso;
+    public int getIdCourse() {
+        return idCourse;
     }
 
-    public void setIdCurso(int idCurso) {
-        this.idCurso = idCurso;
+    public void setIdCourse(int idCourse) {
+        this.idCourse = idCourse;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getDuracao() {
-        return duracao;
+    public int getDuration() {
+        return duration;
     }
 
-    public void setDuracao(int duracao) {
-        this.duracao = duracao;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     public List<Student> getStudents() {
@@ -45,6 +45,4 @@ public class Course {
     public void setStudents(List<Student> students) {
         this.students = students;
     }
-
-    // Getters e setters
 }

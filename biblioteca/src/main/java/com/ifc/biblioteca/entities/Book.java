@@ -7,39 +7,39 @@ import java.util.List;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idLivro;
-    private String titulo;
+    private int idBook;
+    private String title;
     @ManyToOne
-    @JoinColumn(name = "id_autor")
-    private Author autor;
+    @JoinColumn(name = "id_author")
+    private Author author;
     private String isbn;
-    private boolean disponibilidade;
+    private boolean availability;
 
-    @OneToMany(mappedBy = "livro")
+    @OneToMany(mappedBy = "book")
     private List<Loan> loans;
 
-    public int getIdLivro() {
-        return idLivro;
+    public int getIdBook() {
+        return idBook;
     }
 
-    public void setIdLivro(int idLivro) {
-        this.idLivro = idLivro;
+    public void setIdBook(int idBook) {
+        this.idBook = idBook;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Author getAutor() {
-        return autor;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAutor(Author autor) {
-        this.autor = autor;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     public String getIsbn() {
@@ -50,12 +50,12 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public boolean isDisponibilidade() {
-        return disponibilidade;
+    public boolean isAvailability() {
+        return availability;
     }
 
-    public void setDisponibilidade(boolean disponibilidade) {
-        this.disponibilidade = disponibilidade;
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
     }
 
     public List<Loan> getLoans() {
@@ -65,6 +65,5 @@ public class Book {
     public void setLoans(List<Loan> loans) {
         this.loans = loans;
     }
-
     
 }

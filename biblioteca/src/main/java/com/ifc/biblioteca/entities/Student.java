@@ -4,23 +4,25 @@ import jakarta.persistence.*;
 
 @Entity
 public class Student extends User {
-    private String matricula;
+    private String registration;
     @ManyToOne
     @JoinColumn(name = "id_curso")
-    private Course curso;
+    private Course course;
     
-    public String getMatricula() {
-        return matricula;
-    }
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-    public Course getCurso() {
-        return curso;
-    }
-    public void setCurso(Course curso) {
-        this.curso = curso;
+    public String getRegistration() {
+        return registration;
     }
 
-    // Getters e setters
+    public void setRegistration(String registration) {
+        this.registration = registration;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
 }
