@@ -1,7 +1,8 @@
 package com.ifc.biblioteca.service;
 
-import com.ifc.biblioteca.entity.Email;
-import com.ifc.biblioteca.repository.EmailRepository;
+import com.ifc.biblioteca.domain.email.Email;
+import com.ifc.biblioteca.repositories.EmailRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

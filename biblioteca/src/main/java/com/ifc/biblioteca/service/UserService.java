@@ -1,7 +1,8 @@
 package com.ifc.biblioteca.service;
 
-import com.ifc.biblioteca.entity.User;
-import com.ifc.biblioteca.repository.UserRepository;
+import com.ifc.biblioteca.domain.user.User;
+import com.ifc.biblioteca.repositories.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
