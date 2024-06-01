@@ -1,77 +1,68 @@
 @startuml Biblioteca
 
 class Email {
-  - id_email: int
+  - id: int
   - email: String
   + validarEmail(email: String): boolean
 }
 
 class Pessoa {
+  - id: int
   - cpf: String
-  - id_email: int
   - nome: String
   - senha: String
-  - data_nascimento: Date
+  - dataNascimento: Date
+  + registrar(cpf: String, nome: String, senha: String, dataNascimento: Date): void
+  + login(cpf: String, senha: String): void
 }
 
-class Usuario {
-  - id_usuario: int
-  - id_pessoa: int
-  + registrar(cpf : String, nome : String, senha : String, data_nascimento : Date): void
-  + login(cpf : String, senha : String): void
+class Usuario extends Pessoa {
+  + registrar(cpf: String, nome: String, senha: String, dataNascimento: Date): void
+  + login(cpf: String, senha: String): void
 }
 
 class Curso {
-  - id_curso: int
+  - id: int
   - nome: String
   - duracao: int
   + cadastrar(nome: String, duracao: int): void
   + buscar(): List<Curso>
 }
 
-class Estudante {
+class Estudante extends Usuario {
   - matricula: String
-  - id_curso: int
-  - id_usuario: int
+  - idCurso: int
 }
 
-class Professor {
-  - id_professor: int
+class Professor extends Usuario {
   - departamento: String
-  - id_usuario: int
 }
-
 
 class Autor {
-  - id_autor: int
+  - id: int
   - nome: String
-  - data_nascimento: Date
+  - dataNascimento: Date
   - biografia: String
-  + cadastrar(nome: String, data_nascimento: Date, biografia: String): void
+  + cadastrar(nome: String, dataNascimento: Date, biografia: String): void
 }
 
 class Livro {
-  - id_livro: int
+  - id: int
   - titulo: String
-  - id_autor: int
   - isbn: String
   - disponibilidade: boolean
   + buscar(): List<Livro>
 }
 
 class Emprestimo {
-  - id_emprestimo: int
+  - id: int
   - dataEmprestimo: Date
   - dataDevolucao: Date
-  - id_usuario: int
-  - id_livro: int
-  + emprestar(id_usuario: int, id_livro: int): void
-  + devolver(id_usuario: int, id_livro: int): void
+  + emprestar(usuario: Usuario, livro: Livro): void
+  + devolver(usuario: Usuario, livro: Livro): void
 }
 
-class Administrador {
-  - id_administrador: int
-  - id_usuario: int
+class Administrador extends Usuario {
   + adicionarLivro(livro: Livro): void
   + removerLivro(livro: Livro): void
   + gerenciarUsuarios(usuario: Usuario): void
@@ -79,22 +70,16 @@ class Administrador {
 
 class Biblioteca {
   - livros: List<Livro>
-  - id_usuarios: List<Usuario>
+  - usuarios: List<Usuario>
 }
 
-Usuario "1" *-- "0..1" Estudante
-Usuario "1" *-- "0..1" Professor
+Pessoa "1" *-- "0..*" Email
 
 Livro "1" *-- "0..*" Emprestimo
 Usuario "1" *-- "0..*" Emprestimo
 
 Biblioteca "1" *-- "1..*" Livro
 Biblioteca "1" *-- "1..*" Usuario
-
-Administrador "0..1" -- "1" Usuario
-
-Pessoa "1" *-- "1" Email
-Pessoa "1" *-- "1" Usuario
 
 Curso "1" *-- "0..*" Estudante
 
