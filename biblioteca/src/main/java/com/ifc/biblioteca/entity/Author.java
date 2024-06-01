@@ -3,57 +3,26 @@ package com.ifc.biblioteca.entity;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "author")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Author {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private int idAuthor;
     private String name;
     private Date birthDate;
     private String biography;
     
-    @OneToMany(mappedBy = "autor")
+    @OneToMany(mappedBy = "author")
     private List<Book> books;
-
-    public int getIdAuthor() {
-        return idAuthor;
-    }
-
-    public void setIdAuthor(int idAuthor) {
-        this.idAuthor = idAuthor;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public String getBiography() {
-        return biography;
-    }
-
-    public void setBiography(String biography) {
-        this.biography = biography;
-    }
-
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 
 }

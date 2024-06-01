@@ -1,21 +1,19 @@
 package com.ifc.biblioteca.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "administrator")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Administrator extends User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idAdministrator;
-
-    public long getIdAdministrador() {
-        return idAdministrator;
-    }
-
-    public void setIdAdministrador(long idAdministrator) {
-        this.idAdministrator = idAdministrator;
-    }
-
-    
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private long id;
 }

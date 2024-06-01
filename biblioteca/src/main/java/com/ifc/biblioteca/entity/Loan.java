@@ -2,9 +2,17 @@ package com.ifc.biblioteca.entity;
 
 import jakarta.persistence.*;
 import java.util.Date;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "loan")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,30 +26,6 @@ public class Loan {
     @ManyToOne
     @JoinColumn(name = "id_livro")
     private Book book;
-    
-    public int getIdLoan() {
-        return idLoan;
-    }
-
-    public void setIdLoan(int idLoan) {
-        this.idLoan = idLoan;
-    }
-
-    public Date getLoanDate() {
-        return loanDate;
-    }
-
-    public void setLoanDate(Date loanDate) {
-        this.loanDate = loanDate;
-    }
-
-    public Date getReturnDate() {
-        return returnDate;
-    }
-
-    public void setReturnDate(Date returnDate) {
-        this.returnDate = returnDate;
-    }
 
     public User getUser() {
         return user;

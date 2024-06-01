@@ -1,20 +1,26 @@
 package com.ifc.biblioteca.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "user")
+@Data
+@NoArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User extends Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUser;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private long id;
 
-    public int getIdUser() {
-        return idUser;
-    }
+    @OneToOne(mappedBy = "user")
+    private Student student;
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
+    @OneToOne(mappedBy = "user")
+    private Teacher teacher;
+
+    @OneToOne(mappedBy = "user")
+    private List<Loan> loans;
 
 }

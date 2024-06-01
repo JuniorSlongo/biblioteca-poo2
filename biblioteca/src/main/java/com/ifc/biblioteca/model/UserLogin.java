@@ -1,4 +1,4 @@
-package com.ifc.biblioteca.models;
+package com.ifc.biblioteca.model;
 
 public class UserLogin {
     private String cpf;

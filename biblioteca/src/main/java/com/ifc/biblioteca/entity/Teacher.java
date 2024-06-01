@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "teacher")
+@Data
+@NoArgsConstructor
 public class Teacher extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTeacher;
+    private int id;
     private String departament;
     
     public int getIdTeacher() {
