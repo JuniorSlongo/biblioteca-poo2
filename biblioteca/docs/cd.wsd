@@ -17,6 +17,7 @@ class Pessoa {
 }
 
 class Usuario extends Pessoa {
+  - id: int
   + registrar(cpf: String, nome: String, senha: String, dataNascimento: Date): void
   + login(cpf: String, senha: String): void
 }
