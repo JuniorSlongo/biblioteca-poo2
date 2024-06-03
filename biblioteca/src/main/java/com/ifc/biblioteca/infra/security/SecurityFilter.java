@@ -1,6 +1,6 @@
 package com.ifc.biblioteca.infra.security;
 
-import com.ifc.biblioteca.domain.user.User;
+import com.ifc.biblioteca.entity.User;
 import com.ifc.biblioteca.repositories.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

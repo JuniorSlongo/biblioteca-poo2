@@ -1,20 +1,21 @@
-package com.ifc.biblioteca.domain.teacher;
+package com.ifc.biblioteca.entity;
 
-import com.ifc.biblioteca.domain.user.User;
+
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "teacher")
+@Table(name = "user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Teacher extends User {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class User extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    private String departament;
 }

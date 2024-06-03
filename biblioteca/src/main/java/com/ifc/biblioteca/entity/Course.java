@@ -1,12 +1,11 @@
-package com.ifc.biblioteca.domain.course;
+package com.ifc.biblioteca.entity;
 
 import jakarta.persistence.*;
 import java.util.List;
 
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import com.ifc.biblioteca.domain.student.Student;
 
 @Entity
 @Table(name = "course")

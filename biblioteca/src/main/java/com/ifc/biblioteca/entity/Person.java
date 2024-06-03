@@ -1,10 +1,8 @@
-package com.ifc.biblioteca.domain.person;
+package com.ifc.biblioteca.entity;
 
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
-
-import com.ifc.biblioteca.domain.email.Email;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

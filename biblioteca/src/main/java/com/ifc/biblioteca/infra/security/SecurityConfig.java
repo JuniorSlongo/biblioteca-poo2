@@ -26,7 +26,7 @@ package com.ifc.biblioteca.infra.security;
 //             .permitAll();
 //     }
 // }
-package com.example.loginauthapi.infra.security;
+package com.ifc.biblioteca.infra.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
