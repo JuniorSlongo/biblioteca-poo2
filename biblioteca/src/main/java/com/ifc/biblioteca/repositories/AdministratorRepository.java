@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ifc.biblioteca.entity.Administrator;
 
-import java.util.Optional;
+
 
 @Repository
 public interface AdministratorRepository extends JpaRepository<Administrator, String> {}

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ifc.biblioteca.entity.Teacher;
 
-import java.util.Optional;
+
 
 @Repository
 public interface TeacherRepository extends JpaRepository<Teacher, String> {}

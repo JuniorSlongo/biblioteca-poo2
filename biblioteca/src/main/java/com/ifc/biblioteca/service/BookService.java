@@ -1,7 +1,7 @@
 package com.ifc.biblioteca.service;
 
 import com.ifc.biblioteca.entity.Book;
-import com.ifc.biblioteca.entity.User;
+
 import com.ifc.biblioteca.repositories.BookRepository;
 
 import java.util.Optional;
