@@ -1,7 +1,7 @@
 package com.ifc.biblioteca.controllers;
 
 import com.ifc.biblioteca.entity.Email;
-import com.ifc.biblioteca.entity.user.User;
+import com.ifc.biblioteca.entity.User;
 import com.ifc.biblioteca.model.UserLogin;
 import com.ifc.biblioteca.model.UserRegister;
 import com.ifc.biblioteca.service.UserService;
