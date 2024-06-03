@@ -3,13 +3,16 @@ package com.ifc.biblioteca.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
+
+import lombok.Getter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "teacher")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Teacher extends User {

@@ -1,16 +1,16 @@
 package com.ifc.biblioteca.entity;
 
-
-
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
 import lombok.AllArgsConstructor;
+
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "user")
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -19,4 +19,7 @@ public class User extends Person {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    @OneToOne  
+    @JoinColumn(name = "email_id")
+    private Email email;
 }

@@ -5,11 +5,15 @@ import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "person")
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Person {

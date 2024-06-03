@@ -23,4 +23,8 @@ public class UserService {
         Optional<User> userOpt = userRepository.findByCpfAndPassword(cpf, password);
         return userOpt.orElse(null);
     }
+
+    public User findUserByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
 }
