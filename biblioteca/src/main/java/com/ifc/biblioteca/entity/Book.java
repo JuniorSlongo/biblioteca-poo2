@@ -3,7 +3,7 @@ package com.ifc.biblioteca.entity;
 import jakarta.persistence.*;
 import java.util.List;
 
-import com.ifc.biblioteca.entity.loan.Loan;
+
 
 import lombok.Data;
 import lombok.AllArgsConstructor;

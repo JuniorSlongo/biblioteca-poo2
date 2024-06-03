@@ -1,6 +1,6 @@
 package com.ifc.biblioteca.entity;
 
-import com.ifc.biblioteca.entity.user.User;
+
 
 import jakarta.persistence.*;
 import lombok.Data;

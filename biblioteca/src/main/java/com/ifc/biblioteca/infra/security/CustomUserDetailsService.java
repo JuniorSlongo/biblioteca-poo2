@@ -1,6 +1,6 @@
 package com.ifc.biblioteca.infra.security;
 
-import com.ifc.biblioteca.entity.user.User;
+import com.ifc.biblioteca.entity.User;
 import com.ifc.biblioteca.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

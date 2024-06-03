@@ -1,4 +1,4 @@
-package com.ifc.biblioteca.entity.person;
+package com.ifc.biblioteca.entity;
 
 import jakarta.persistence.*;
 import java.util.Date;
