@@ -5,4 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ifc.biblioteca.domain.email.Email;
 
-public interface EmailRepository extends JpaRepository<Email, Integer> {}
+import java.util.Optional;
+
+@Repository
+public interface EmailRepository extends JpaRepository<Email, String> {}

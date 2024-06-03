@@ -5,4 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ifc.biblioteca.domain.course.Course;
 
-public interface CourseRepository extends JpaRepository<Course, Integer> {}
+import java.util.Optional;
+
+@Repository
+public interface CourseRepository extends JpaRepository<Course, String> {}

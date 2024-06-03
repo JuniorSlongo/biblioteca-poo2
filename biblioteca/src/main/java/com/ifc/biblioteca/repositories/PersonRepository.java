@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 
 import com.ifc.biblioteca.domain.person.Person;
 
+@Repository
 public interface PersonRepository extends JpaRepository<Person, String> {}
