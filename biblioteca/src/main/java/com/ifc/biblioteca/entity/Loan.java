@@ -1,9 +1,9 @@
-package com.ifc.biblioteca.domain.loan;
+package com.ifc.biblioteca.entity.loan;
 
-import com.ifc.biblioteca.domain.book.Book;
-import com.ifc.biblioteca.domain.user.User;
 import jakarta.persistence.*;
 import java.util.Date;
+
+import com.ifc.biblioteca.entity.user.User;
 
 import lombok.Data;
 import lombok.AllArgsConstructor;

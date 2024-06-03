@@ -1,6 +1,6 @@
-package com.ifc.biblioteca.domain.administrator;
+package com.ifc.biblioteca.entity.user;
 
-import com.ifc.biblioteca.domain.user.User;
+import com.ifc.biblioteca.entity.person.Person;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,12 +8,14 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "administrator")
+@Table(name = "user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Administrator extends User {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class User extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
 }

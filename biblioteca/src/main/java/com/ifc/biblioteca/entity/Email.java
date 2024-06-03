@@ -1,6 +1,6 @@
-package com.ifc.biblioteca.domain.email;
+package com.ifc.biblioteca.entity;
 
-import com.ifc.biblioteca.domain.person.Person;
+import com.ifc.biblioteca.entity.person.Person;
 
 import jakarta.persistence.*;
 import lombok.Data;

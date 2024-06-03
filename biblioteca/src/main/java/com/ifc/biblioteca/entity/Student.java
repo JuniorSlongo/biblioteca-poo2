@@ -1,7 +1,6 @@
-package com.ifc.biblioteca.domain.student;
+package com.ifc.biblioteca.entity.student;
 
-import com.ifc.biblioteca.domain.user.User;
-import com.ifc.biblioteca.domain.course.Course;
+import com.ifc.biblioteca.entity.user.User;
 
 import jakarta.persistence.*;
 import lombok.Data;

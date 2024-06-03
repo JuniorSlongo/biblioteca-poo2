@@ -1,9 +1,9 @@
 package com.ifc.biblioteca.controllers;
 
-import com.ifc.biblioteca.domain.user.User;
 import com.ifc.biblioteca.dto.LoginRequestDTO;
 import com.ifc.biblioteca.dto.RegisterRequestDTO;
 import com.ifc.biblioteca.dto.ResponseDTO;
+import com.ifc.biblioteca.entity.user.User;
 import com.ifc.biblioteca.infra.security.TokenService;
 import com.ifc.biblioteca.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
