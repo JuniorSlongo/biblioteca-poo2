@@ -8,4 +8,4 @@ import com.ifc.biblioteca.entity.Administrator;
 
 
 @Repository
-public interface AdministratorRepository extends JpaRepository<Administrator, String> {}
+public interface AdministratorRepository extends JpaRepository<Administrator, Long> {}

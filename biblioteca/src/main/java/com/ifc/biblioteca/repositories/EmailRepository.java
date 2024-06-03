@@ -7,4 +7,4 @@ import com.ifc.biblioteca.entity.Email;
 
 
 @Repository
-public interface EmailRepository extends JpaRepository<Email, String> {}
+public interface EmailRepository extends JpaRepository<Email, Long> {}

@@ -5,21 +5,17 @@ import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "person")
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String cpf;
     private String name;

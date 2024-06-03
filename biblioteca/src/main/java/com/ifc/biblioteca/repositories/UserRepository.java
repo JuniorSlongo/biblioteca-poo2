@@ -8,7 +8,7 @@ import com.ifc.biblioteca.entity.User;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, String> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
   Optional<User> findByCpf(String cpf);
   Optional<User> findByCpfAndPassword(String cpf, String password);

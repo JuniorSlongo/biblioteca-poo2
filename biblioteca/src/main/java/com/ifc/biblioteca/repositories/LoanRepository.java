@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import com.ifc.biblioteca.entity.Loan;
 
 @Repository
-public interface LoanRepository extends JpaRepository<Loan, String> {}
+public interface LoanRepository extends JpaRepository<Loan, Long> {}

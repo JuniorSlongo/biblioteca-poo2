@@ -5,22 +5,18 @@ import java.util.Date;
 
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "loan")
 @Data
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String idLoan;
+    private Long id;
     private Date loanDate;
     private Date returnDate;
     
