@@ -3,6 +3,8 @@ package com.ifc.biblioteca.service;
 import com.ifc.biblioteca.entity.User;
 import com.ifc.biblioteca.repositories.UserRepository;
 
+import com.ifc.biblioteca.entity.Email;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +26,8 @@ public class UserService {
         return userOpt.orElse(null);
     }
 
-    public User findUserByEmail(String email){
+    public User findUserByEmail(Email email){
+      
         Optional<User> userOpt = userRepository.findByEmail(email);
         return userOpt.orElse(null);
     }

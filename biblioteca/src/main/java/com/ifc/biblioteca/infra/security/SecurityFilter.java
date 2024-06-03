@@ -27,9 +27,9 @@
 //     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 //         var token = this.recoverToken(request);
 //         var login = tokenService.validateToken(token);
-
+//         Email email = new Email(login);
 //         if(login != null){
-//             User user = userRepository.findByEmail(login).orElseThrow(() -> new RuntimeException("User Not Found"));
+//             User user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User Not Found"));
 //             var authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
 //             var authentication = new UsernamePasswordAuthenticationToken(user, null, authorities);
 //             SecurityContextHolder.getContext().setAuthentication(authentication);
