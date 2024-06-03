@@ -13,9 +13,9 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void register(User user) {
+    public User register(User user) {
         // Implementação do método de registro
-        userRepository.save(user);
+        return userRepository.save(user);
     }
 
     public User login(String cpf, String password) {
@@ -25,6 +25,11 @@ public class UserService {
     }
 
     public User findUserByEmail(String email){
-        return userRepository.findByEmail(email);
+        Optional<User> userOpt = userRepository.findByEmail(email);
+        return userOpt.orElse(null);
+    }
+
+    public Iterable<User> getAllUsers(){
+        return userRepository.findAll();
     }
 }

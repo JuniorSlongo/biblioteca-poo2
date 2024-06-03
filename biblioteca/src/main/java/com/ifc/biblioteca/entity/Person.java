@@ -26,8 +26,7 @@ public class Person {
     private String password;
     private Date birthDate;
     
-    @OneToMany
-    @JoinColumn(name = "idEmail")
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Email> emails;
     
 }
