@@ -15,4 +15,8 @@ public class Administrator extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "user_fk")
+    private User user;
 }

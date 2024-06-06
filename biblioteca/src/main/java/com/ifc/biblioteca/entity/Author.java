@@ -4,16 +4,19 @@ import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "author")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Author {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,7 +24,7 @@ public class Author {
     private String name;
     private Date birthDate;
     private String biography;
-    
+
     @OneToMany(mappedBy = "author")
     private List<Book> books;
 

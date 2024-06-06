@@ -3,15 +3,15 @@ package com.ifc.biblioteca.entity;
 import jakarta.persistence.*;
 import java.util.List;
 
-
-
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "book")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book {
@@ -20,13 +20,12 @@ public class Book {
     private Long id;
 
     private String title;
+    private String isbn;
+    private boolean availability;
 
     @ManyToOne
     @JoinColumn(name = "id_author")
     private Author author;
-
-    private String isbn;
-    private boolean availability;
 
     @OneToMany(mappedBy = "book")
     private List<Loan> loans;

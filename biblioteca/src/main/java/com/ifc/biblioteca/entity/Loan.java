@@ -3,14 +3,15 @@ package com.ifc.biblioteca.entity;
 import jakarta.persistence.*;
 import java.util.Date;
 
-
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "loan")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Loan {
@@ -21,10 +22,10 @@ public class Loan {
     private Date returnDate;
     
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "user_fk")
     private User user;
     @ManyToOne
-    @JoinColumn(name = "id_livro")
+    @JoinColumn(name = "book_fk")
     private Book book;
 
 }

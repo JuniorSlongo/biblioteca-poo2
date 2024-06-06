@@ -14,8 +14,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User extends Person {
-   
-    @OneToOne  
-    @JoinColumn(name = "email_id")
-    private Email email;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "person_fk")
+    private Person person;
+    
 }

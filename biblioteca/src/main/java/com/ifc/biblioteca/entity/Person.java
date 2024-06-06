@@ -4,12 +4,16 @@ import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "person")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
@@ -21,8 +25,6 @@ public class Person {
     private String name;
     private String password;
     private Date birthDate;
-    
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Email> emails;
+    private String email;
     
 }
