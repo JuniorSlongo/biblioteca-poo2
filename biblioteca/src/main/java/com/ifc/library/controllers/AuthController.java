@@ -52,7 +52,7 @@ public class AuthController {
             if(body.type().equalsIgnoreCase("student")) {
                 newUser = studentFactory.createUser(body.registration());
             } else if (body.type().equalsIgnoreCase("teacher")){
-                newUser = teacherFactory.createUser(body.departament());
+                newUser = teacherFactory.createUser(body.department());
             } else {
                 return ResponseEntity.badRequest().build();
             }
