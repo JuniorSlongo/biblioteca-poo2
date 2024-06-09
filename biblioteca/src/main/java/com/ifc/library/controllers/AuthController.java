@@ -50,9 +50,9 @@ public class AuthController {
         if(user.isEmpty()) {
             User newUser;
             if(body.type().equalsIgnoreCase("student")) {
-                newUser = studentFactory.createUser(body.registration());
+                newUser = studentFactory.createStudent(body.registration());
             } else if (body.type().equalsIgnoreCase("teacher")){
-                newUser = teacherFactory.createUser(body.departament());
+                newUser = teacherFactory.createTeacher(body.departament());
             } else {
                 return ResponseEntity.badRequest().build();
             }
