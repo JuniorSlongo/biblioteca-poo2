@@ -19,7 +19,11 @@ import com.ifc.library.factory.TeacherFactory;
 import com.ifc.library.repositories.UserRepository;
 import com.ifc.library.infra.security.TokenService;
 
+import java.text.SimpleDateFormat;
 import java.util.Optional;
+
+import java.text.ParseException;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/auth")
@@ -60,7 +64,17 @@ public class AuthController {
             newUser.setEmail(body.email());
             newUser.setName(body.name());
             newUser.setCpf(body.cpf());
-            newUser.setBirthDate(body.birthDate());
+            
+            try {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                Date birthDate = formatter.parse(body.birthDate());
+                newUser.setbirthDate(birthDate);
+            } catch (ParseException e) {
+                return ResponseEntity.badRequest().body("Invalid date format. Use 'yyyy-MM-dd'.");
+            }
+
+            newUser.setPerson(newUser);
+
             this.repository.save(newUser);
 
             String token = this.tokenService.generateToken(newUser);
