@@ -13,7 +13,7 @@ public class TeacherFactory implements UserFactory{
 
   public Teacher createTeacher(String department) {
     Teacher teacher = new Teacher();
-    teacher.setRegistration(registration);
+    teacher.setDepartament(departament);
     return teacher;
   }
 }
