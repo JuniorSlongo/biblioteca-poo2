@@ -1,29 +1,22 @@
 @startuml Biblioteca
 
-class Email {
-  - id: int
-  - email: String
-  + validarEmail(email: String): boolean
-}
-
 class Pessoa {
-  - id: int
+  - id: String
   - cpf: String
   - nome: String
-  - senha: String
+  - email: String
   - dataNascimento: Date
-  + registrar(cpf: String, nome: String, senha: String, dataNascimento: Date): void
-  + login(cpf: String, senha: String): void
 }
 
 class Usuario extends Pessoa {
-  - id: int
-  + registrar(cpf: String, nome: String, senha: String, dataNascimento: Date): void
-  + login(cpf: String, senha: String): void
+  - id: String
+  - senha: String
+  + registrar(cpf: String, nome: String, email: String, senha: String, dataNascimento: Date): void
+  + login(email: String, senha: String): void
 }
 
 class Curso {
-  - id: int
+  - id: String
   - nome: String
   - duracao: int
   + cadastrar(nome: String, duracao: int): void
@@ -31,6 +24,7 @@ class Curso {
 }
 
 class Estudante extends Usuario {
+  - id: String
   - matricula: String
   - idCurso: int
 }
@@ -40,7 +34,7 @@ class Professor extends Usuario {
 }
 
 class Autor {
-  - id: int
+  - id: String
   - nome: String
   - dataNascimento: Date
   - biografia: String
@@ -48,7 +42,7 @@ class Autor {
 }
 
 class Livro {
-  - id: int
+  - id: String
   - titulo: String
   - isbn: String
   - disponibilidade: boolean
@@ -56,7 +50,7 @@ class Livro {
 }
 
 class Emprestimo {
-  - id: int
+  - id: String
   - dataEmprestimo: Date
   - dataDevolucao: Date
   + emprestar(usuario: Usuario, livro: Livro): void
@@ -64,6 +58,7 @@ class Emprestimo {
 }
 
 class Administrador extends Usuario {
+  - id: String
   + adicionarLivro(livro: Livro): void
   + removerLivro(livro: Livro): void
   + gerenciarUsuarios(usuario: Usuario): void
