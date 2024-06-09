@@ -29,7 +29,7 @@ import java.util.Date;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
-  
+
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
     private final TokenService tokenService;
@@ -37,25 +37,24 @@ public class AuthController {
     private final TeacherFactory teacherFactory;
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody LoginRequestDTO body){
+    public ResponseEntity login(@RequestBody LoginRequestDTO body) {
         User user = this.repository.findByEmail(body.email()).orElseThrow(() -> new RuntimeException("User not found"));
-        if(passwordEncoder.matches(body.password(), user.getPassword())) {
+        if (passwordEncoder.matches(body.password(), user.getPassword())) {
             String token = this.tokenService.generateToken(user);
             return ResponseEntity.ok(new ResponseDTO(user.getName(), token));
         }
         return ResponseEntity.badRequest().build();
     }
 
-
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody RegisterRequestDTO body){
+    public ResponseEntity register(@RequestBody RegisterRequestDTO body) {
         Optional<User> user = this.repository.findByEmail(body.email());
 
-        if(user.isEmpty()) {
+        if (user.isEmpty()) {
             User newUser;
-            if(body.type().equalsIgnoreCase("student")) {
+            if (body.type().equalsIgnoreCase("student")) {
                 newUser = studentFactory.createStudent(body.registration());
-            } else if (body.type().equalsIgnoreCase("teacher")){
+            } else if (body.type().equalsIgnoreCase("teacher")) {
                 newUser = teacherFactory.createTeacher(body.departament());
             } else {
                 return ResponseEntity.badRequest().build();
@@ -64,11 +63,11 @@ public class AuthController {
             newUser.setEmail(body.email());
             newUser.setName(body.name());
             newUser.setCpf(body.cpf());
-            
+
             try {
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 Date birthDate = formatter.parse(body.birthDate());
-                newUser.setbirthDate(birthDate);
+                newUser.setBirthDate(birthDate);
             } catch (ParseException e) {
                 return ResponseEntity.badRequest().body("Invalid date format. Use 'yyyy-MM-dd'.");
             }
