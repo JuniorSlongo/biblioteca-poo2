@@ -11,7 +11,7 @@ public class TeacherFactory implements UserFactory{
     return new Teacher();
   }
 
-  public Teacher createTeacher(String department) {
+  public Teacher createTeacher(String departament) {
     Teacher teacher = new Teacher();
     teacher.setDepartament(departament);
     return teacher;
