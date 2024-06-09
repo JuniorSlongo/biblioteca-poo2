@@ -18,5 +18,5 @@ public class UserController {
 
     // listando livros
 
-    // listando emprestimos de um usuario
+    // listando emprestimos do usuario
 }
